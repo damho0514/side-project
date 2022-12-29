@@ -1,0 +1,72 @@
+.yennefer-sider {
+    &__content {
+        &__menu-item {
+            margin: 0 !important;
+            padding: 0 18px !important;
+            height: 52px !important;
+
+            .data-catalog,
+            .outlink {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+
+                &__left {
+                    &__disabled {
+                        opacity: 0.4;
+                        pointer-events: none;
+                        color: #000;
+                    }
+                }
+
+                &__right {
+                    img {
+                        position: absolute;
+                        top: 50%;
+                        right: 16px;
+                        width: 14.17px;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+
+            .ant-menu-title-content {
+                display: flex;
+                align-items: center;
+
+                span {
+                    font-weight: 400;
+                    font-size: 14px;
+                }
+            }
+        }
+
+        &__submenu {
+            margin: 0 !important;
+
+            .ant-menu-submenu-title {
+                margin: 0 !important;
+                padding: 0 0 0 18px !important;
+                height: 52px !important;
+
+                .ant-menu-title-content {
+                    display: flex;
+                    align-items: center;
+                }
+
+                span {
+                    font-weight: 400;
+                    font-size: 14px;
+                    margin: 0 !important;
+                }
+            }
+        }
+
+        &__submenu-item {
+            margin: 0 !important;
+            height: 52px !important;
+            padding-left: 51px !important;
+        }
+    }
+}
