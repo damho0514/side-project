@@ -4,10 +4,15 @@ import "./LoginForm.scss";
 import KAKAO_IMG from "../../../../assets/imges/kakao_login.png";
 interface LoginProps {
     onFinish: () => void;
-    KAKAKO_AUTH_URL: string;
+
+    handleLogin: () => void;
 }
 
-export default function Login({ onFinish, KAKAKO_AUTH_URL }: LoginProps) {
+export default function Login({
+    onFinish,
+
+    handleLogin,
+}: LoginProps) {
     return (
         <div className="appBg">
             <Form className="loginForm" onFinish={onFinish}>
@@ -43,10 +48,8 @@ export default function Login({ onFinish, KAKAKO_AUTH_URL }: LoginProps) {
                 <Divider style={{ borderColor: "black" }}>
                     or Login with
                 </Divider>
-                <div className="socialLogin">
-                    <a href={KAKAKO_AUTH_URL}>
-                        <img src={KAKAO_IMG} alt="kakao_img" />
-                    </a>
+                <div className="socialLogin" onClick={handleLogin}>
+                    <img src={KAKAO_IMG} alt="kakao_img" />
                 </div>
             </Form>
         </div>
