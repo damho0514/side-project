@@ -33,18 +33,9 @@ function PrivateRoute({ children }: PrivateRouteProps) {
   );
 }
 
-const KAKAO_CLIENTID = '05ee8f0cd81a9faa258924cd52286687';
-const REDIRECT_URI = 'http://localhost:3000/kakaoLogin';
-const LOGIN_URL = `http://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_CLIENTID}\
-&redirect_uri=${REDIRECT_URI}&response_type=code`;
-
 function App({ history }: AppProps) {
   const onFinish = () => {
     message.success('로그인 성공하셨습니다.');
-  };
-
-  const handleLogin = () => {
-    window.location.href = LOGIN_URL;
   };
 
   return (
@@ -53,10 +44,7 @@ function App({ history }: AppProps) {
         {/* {home} */}
         {/* <Route path="/*" element={<BasicLayout />}></Route> */}
         <Route>
-          <Route
-            path="/login"
-            element={<LoginForm handleLogin={handleLogin} onFinish={onFinish} />}
-          />
+          <Route path="/login" element={<LoginForm onFinish={onFinish} />} />
         </Route>
       </Routes>
     </HistoryRouter>
