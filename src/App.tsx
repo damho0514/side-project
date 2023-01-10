@@ -42,7 +42,7 @@ function App({ history }: AppProps) {
     <HistoryRouter history={history}>
       <Routes>
         {/* {home} */}
-        {/* <Route path="/*" element={<BasicLayout />}></Route> */}
+        <Route path="/*" element={<BasicLayout />}></Route>
         <Route>
           <Route path="/login" element={<LoginForm onFinish={onFinish} />} />
         </Route>

@@ -10,41 +10,40 @@ interface LoginProps {
   onFinish: () => void;
 }
 
-const REST_API_KEY = '05ee8f0cd81a9faa258924cd52286687';
-const REDIRECT_URI = 'http://localhost:3000/kakaoLogin';
-const LOGIN_URL = `http://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}\
-&redirect_uri=${REDIRECT_URI}&response_type=code`;
+const REST_API_KEY = '7038934895251cea79186382ff91203e';
+const REDIRECT_URI = 'http://localhost:3000/oauth';
+const code = new URL(window.location.href).searchParams.get('code');
+const KAKAO_AUTH_URI = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 export default function Login({ onFinish }: LoginProps) {
   const handleLogin = () => {
-    window.location.href = LOGIN_URL;
+    window.location.href = KAKAO_AUTH_URI;
   };
 
   // calllback으로 받은 인가코드
-  const code = new URL(window.location.href).searchParams.get('code');
 
   const navigate = useNavigate();
 
-  const getToken = async () => {
-    const payload = qs.stringify({
-      grant_type: 'authorization_code',
-      client_id: REST_API_KEY,
-      redirect_uri: REDIRECT_URI,
-      code: code,
-      client_secret: LOGIN_URL,
-    });
+  // const getToken = async () => {
+  //   const payload = qs.stringify({
+  //     grant_type: 'authorization_code',
+  //     client_id: REST_API_KEY,
+  //     redirect_uri: REDIRECT_URI,
+  //     code: code,
+  //     client_secret: KAKAO_AUTH_URI,
+  //   });
 
-    try {
-      const res = await axios.post('https://kauth.kakao.com/oauth/token', payload);
+  //   try {
+  //     const res = await axios.post('https://kauth.kakao.com/oauth/token', payload);
 
-      navigate('/profile');
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  //     navigate('/');
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
-  useEffect(() => {
-    getToken();
-  }, []);
+  // useEffect(() => {
+  //   getToken();
+  // }, []);
 
   return (
     <div className="appBg">
