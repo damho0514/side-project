@@ -11,7 +11,7 @@ export const deleteComment = ({ commentId }: { commentId: string }) => {
 };
 
 type UseDeleteCommentOptions = {
-  discussionId?: string;
+  discussionId: string;
   config?: MutationConfig<typeof deleteComment>;
 };
 

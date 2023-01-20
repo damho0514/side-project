@@ -1,5 +1,12 @@
 import { Dialog, Menu, Transition } from '@headlessui/react';
-
+import {
+  UserIcon,
+  FolderIcon,
+  HomeIcon,
+  MenuAlt2Icon,
+  UsersIcon,
+  XIcon,
+} from '@heroicons/react/outline';
 import clsx from 'clsx';
 import * as React from 'react';
 import { NavLink, Link } from 'react-router-dom';
@@ -17,12 +24,12 @@ type SideNavigationItem = {
 const SideNavigation = () => {
   const { checkAccess } = useAuthorization();
   const navigation = [
-    { name: 'Dashboard', to: '.' },
-    { name: 'Discussions', to: './discussions' },
+    { name: 'Dashboard', to: '.', icon: HomeIcon },
+    { name: 'Discussions', to: './discussions', icon: FolderIcon },
     checkAccess({ allowedRoles: [ROLES.ADMIN] }) && {
       name: 'Users',
       to: './users',
-      // icon: UsersIcon,
+      icon: UsersIcon,
     },
   ].filter(Boolean) as SideNavigationItem[];
 
@@ -37,7 +44,7 @@ const SideNavigation = () => {
             'text-gray-300 hover:bg-gray-700 hover:text-white',
             'group flex items-center px-2 py-2 text-base font-medium rounded-md'
           )}
-          // activeClassName="bg-gray-900 text-white"
+          activeClassName="bg-gray-900 text-white"
         >
           <item.icon
             className={clsx(
@@ -80,7 +87,7 @@ const UserNavigation = () => {
           <div>
             <Menu.Button className="max-w-xs  bg-gray-200 p-2 flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               <span className="sr-only">Open user menu</span>
-              {/* <UserIcon className="h-8 w-8 rounded-full" /> */}
+              <UserIcon className="h-8 w-8 rounded-full" />
             </Menu.Button>
           </div>
           <Transition
@@ -172,7 +179,7 @@ const MobileSidebar = ({ sidebarOpen, setSidebarOpen }: MobileSidebarProps) => {
                   onClick={() => setSidebarOpen(false)}
                 >
                   <span className="sr-only">Close sidebar</span>
-                  {/* <XIcon className="h-6 w-6 text-white" aria-hidden="true" /> */}
+                  <XIcon className="h-6 w-6 text-white" aria-hidden="true" />
                 </button>
               </div>
             </Transition.Child>
@@ -238,7 +245,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
             onClick={() => setSidebarOpen(true)}
           >
             <span className="sr-only">Open sidebar</span>
-            {/* <MenuAlt2Icon className="h-6 w-6" aria-hidden="true" /> */}
+            <MenuAlt2Icon className="h-6 w-6" aria-hidden="true" />
           </button>
           <div className="flex-1 px-4 flex justify-end">
             <div className="ml-4 flex items-center md:ml-6">

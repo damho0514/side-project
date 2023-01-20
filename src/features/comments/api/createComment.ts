@@ -9,7 +9,7 @@ import { Comment } from '../types';
 export type CreateCommentDTO = {
   data: {
     body: string;
-    discussionId?: string;
+    discussionId: string;
   };
 };
 
@@ -18,7 +18,7 @@ export const createComment = ({ data }: CreateCommentDTO): Promise<Comment> => {
 };
 
 type UseCreateCommentOptions = {
-  discussionId?: string;
+  discussionId: string;
   config?: MutationConfig<typeof createComment>;
 };
 

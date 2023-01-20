@@ -1,3 +1,5 @@
+import { ArchiveIcon } from '@heroicons/react/outline';
+
 import { Spinner, MDPreview } from '@/components/Elements';
 import { User } from '@/features/users';
 import { useAuth } from '@/lib/auth';
@@ -9,7 +11,7 @@ import { useComments } from '../api/getComments';
 import { DeleteComment } from './DeleteComment';
 
 type CommentsListProps = {
-  discussionId?: string;
+  discussionId: string;
 };
 
 export const CommentsList = ({ discussionId }: CommentsListProps) => {
@@ -31,6 +33,7 @@ export const CommentsList = ({ discussionId }: CommentsListProps) => {
         aria-label="comments"
         className="bg-white text-gray-500 h-40 flex justify-center items-center flex-col"
       >
+        <ArchiveIcon className="h-10 w-10" />
         <h4>No Comments Found</h4>
       </div>
     );

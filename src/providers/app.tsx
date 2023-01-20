@@ -7,8 +7,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import { Button, Spinner } from '@/components/Elements';
 import { Notifications } from '@/components/Notifications/Notifications';
-import { queryClient } from '@/lib/react-query';
 import { AuthProvider } from '@/lib/auth';
+import { queryClient } from '@/lib/react-query';
 
 const ErrorFallback = () => {
   return (

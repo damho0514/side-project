@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-// import { initMocks } from './test/server';
+import { initMocks } from './test/server';
 
-// initMocks();
+initMocks();
 
 ReactDOM.render(
   <React.StrictMode>

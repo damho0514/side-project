@@ -12,7 +12,7 @@ const meta: Meta = {
 
 export default meta;
 
-const Template: Story<ButtonProps> = (props: any) => <Button {...props} />;
+const Template: Story<ButtonProps> = (props) => <Button {...props} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

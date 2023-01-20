@@ -1,3 +1,4 @@
+import { PlusIcon } from '@heroicons/react/outline';
 import * as z from 'zod';
 
 import { Button } from '@/components/Elements';
@@ -18,7 +19,11 @@ export const CreateDiscussion = () => {
     <Authorization allowedRoles={[ROLES.ADMIN]}>
       <FormDrawer
         isDone={createDiscussionMutation.isSuccess}
-        triggerButton={<Button size="sm">Create Discussion</Button>}
+        triggerButton={
+          <Button size="sm" startIcon={<PlusIcon className="h-4 w-4" />}>
+            Create Discussion
+          </Button>
+        }
         title="Create Discussion"
         submitButton={
           <Button
@@ -33,7 +38,7 @@ export const CreateDiscussion = () => {
       >
         <Form<CreateDiscussionDTO['data'], typeof schema>
           id="create-discussion"
-          onSubmit={async (values: any) => {
+          onSubmit={async (values) => {
             await createDiscussionMutation.mutateAsync({ data: values });
           }}
           schema={schema}

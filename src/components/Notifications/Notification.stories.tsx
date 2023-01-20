@@ -18,7 +18,7 @@ export const Info = Template.bind({});
 Info.args = {
   notification: {
     id: '1',
-
+    type: 'info',
     title: 'Hello Info',
     message: 'This is info notification',
   },
@@ -28,7 +28,7 @@ export const Success = Template.bind({});
 Success.args = {
   notification: {
     id: '1',
-
+    type: 'success',
     title: 'Hello Success',
     message: 'This is success notification',
   },
@@ -38,7 +38,7 @@ export const Warning = Template.bind({});
 Warning.args = {
   notification: {
     id: '1',
-
+    type: 'warning',
     title: 'Hello Warning',
     message: 'This is warning notification',
   },
@@ -48,7 +48,7 @@ export const Error = Template.bind({});
 Error.args = {
   notification: {
     id: '1',
-
+    type: 'error',
     title: 'Hello Error',
     message: 'This is error notification',
   },

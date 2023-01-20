@@ -1,3 +1,4 @@
+import { PencilIcon } from '@heroicons/react/solid';
 import * as z from 'zod';
 
 import { Button } from '@/components/Elements';
@@ -20,7 +21,11 @@ export const UpdateProfile = () => {
   return (
     <FormDrawer
       isDone={updateProfileMutation.isSuccess}
-      triggerButton={<Button size="sm">Update Profile</Button>}
+      triggerButton={
+        <Button startIcon={<PencilIcon className="h-4 w-4" />} size="sm">
+          Update Profile
+        </Button>
+      }
       title="Update Profile"
       submitButton={
         <Button
@@ -35,7 +40,7 @@ export const UpdateProfile = () => {
     >
       <Form<UpdateProfileDTO['data'], typeof schema>
         id="update-profile"
-        onSubmit={async (values: any) => {
+        onSubmit={async (values) => {
           await updateProfileMutation.mutateAsync({ data: values });
         }}
         options={{

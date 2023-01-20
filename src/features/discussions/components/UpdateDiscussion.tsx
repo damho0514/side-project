@@ -1,3 +1,4 @@
+import { PencilIcon } from '@heroicons/react/solid';
 import * as z from 'zod';
 
 import { Button } from '@/components/Elements';
@@ -8,7 +9,7 @@ import { useDiscussion } from '../api/getDiscussion';
 import { UpdateDiscussionDTO, useUpdateDiscussion } from '../api/updateDiscussion';
 
 type UpdateDiscussionProps = {
-  discussionId?: string;
+  discussionId: string;
 };
 
 const schema = z.object({
@@ -24,7 +25,11 @@ export const UpdateDiscussion = ({ discussionId }: UpdateDiscussionProps) => {
     <Authorization allowedRoles={[ROLES.ADMIN]}>
       <FormDrawer
         isDone={updateDiscussionMutation.isSuccess}
-        triggerButton={<Button size="sm">Update Discussion</Button>}
+        triggerButton={
+          <Button startIcon={<PencilIcon className="h-4 w-4" />} size="sm">
+            Update Discussion
+          </Button>
+        }
         title="Update Discussion"
         submitButton={
           <Button
@@ -39,7 +44,7 @@ export const UpdateDiscussion = ({ discussionId }: UpdateDiscussionProps) => {
       >
         <Form<UpdateDiscussionDTO['data'], typeof schema>
           id="update-discussion"
-          onSubmit={async (values: any) => {
+          onSubmit={async (values) => {
             await updateDiscussionMutation.mutateAsync({ data: values, discussionId });
           }}
           options={{

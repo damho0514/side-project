@@ -1,10 +1,12 @@
+import { TrashIcon } from '@heroicons/react/outline';
+
 import { Button, ConfirmationDialog } from '@/components/Elements';
 
 import { useDeleteComment } from '../api/deleteComment';
 
 type DeleteCommentProps = {
   id: string;
-  discussionId?: string;
+  discussionId: string;
 };
 
 export const DeleteComment = ({ id, discussionId }: DeleteCommentProps) => {
@@ -17,7 +19,7 @@ export const DeleteComment = ({ id, discussionId }: DeleteCommentProps) => {
       title="Delete Comment"
       body="Are you sure you want to delete this comment?"
       triggerButton={
-        <Button variant="danger" size="sm">
+        <Button variant="danger" size="sm" startIcon={<TrashIcon className="h-4 w-4" />}>
           Delete Comment
         </Button>
       }

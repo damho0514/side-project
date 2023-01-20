@@ -2,7 +2,7 @@ import { CommentsList } from './CommentsList';
 import { CreateComment } from './CreateComment';
 
 type CommentsProps = {
-  discussionId?: string;
+  discussionId: string;
 };
 
 export const Comments = ({ discussionId }: CommentsProps) => {

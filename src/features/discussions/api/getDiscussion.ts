@@ -5,14 +5,14 @@ import { ExtractFnReturnType, QueryConfig } from '@/lib/react-query';
 
 import { Discussion } from '../types';
 
-export const getDiscussion = ({ discussionId }: { discussionId?: string }): Promise<Discussion> => {
+export const getDiscussion = ({ discussionId }: { discussionId: string }): Promise<Discussion> => {
   return axios.get(`/discussions/${discussionId}`);
 };
 
 type QueryFnType = typeof getDiscussion;
 
 type UseDiscussionOptions = {
-  discussionId?: string;
+  discussionId: string;
   config?: QueryConfig<QueryFnType>;
 };
 

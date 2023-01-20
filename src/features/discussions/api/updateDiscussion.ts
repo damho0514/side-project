@@ -11,7 +11,7 @@ export type UpdateDiscussionDTO = {
     title: string;
     body: string;
   };
-  discussionId?: string;
+  discussionId: string;
 };
 
 export const updateDiscussion = ({

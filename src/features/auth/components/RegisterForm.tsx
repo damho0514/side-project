@@ -49,7 +49,7 @@ export const RegisterForm = ({ onSuccess }: RegisterFormProps) => {
   return (
     <div>
       <Form<RegisterValues, typeof schema>
-        onSubmit={async (values: any) => {
+        onSubmit={async (values) => {
           await register(values);
           onSuccess();
         }}

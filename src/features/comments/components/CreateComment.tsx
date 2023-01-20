@@ -1,3 +1,4 @@
+import { PlusIcon } from '@heroicons/react/outline';
 import * as z from 'zod';
 
 import { Button } from '@/components/Elements';
@@ -10,7 +11,7 @@ const schema = z.object({
 });
 
 type CreateCommentProps = {
-  discussionId?: string;
+  discussionId: string;
 };
 
 export const CreateComment = ({ discussionId }: CreateCommentProps) => {
@@ -19,7 +20,11 @@ export const CreateComment = ({ discussionId }: CreateCommentProps) => {
     <>
       <FormDrawer
         isDone={createCommentMutation.isSuccess}
-        triggerButton={<Button size="sm">Create Comment</Button>}
+        triggerButton={
+          <Button size="sm" startIcon={<PlusIcon className="h-4 w-4" />}>
+            Create Comment
+          </Button>
+        }
         title="Create Comment"
         submitButton={
           <Button
@@ -35,7 +40,7 @@ export const CreateComment = ({ discussionId }: CreateCommentProps) => {
       >
         <Form<CreateCommentDTO['data'], typeof schema>
           id="create-comment"
-          onSubmit={async (values: any) => {
+          onSubmit={async (values) => {
             await createCommentMutation.mutateAsync({
               data: {
                 body: values.body,

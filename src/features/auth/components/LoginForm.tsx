@@ -25,7 +25,7 @@ export const LoginForm = ({ onSuccess }: LoginFormProps) => {
   return (
     <div>
       <Form<LoginValues, typeof schema>
-        onSubmit={async (values: any) => {
+        onSubmit={async (values) => {
           await login(values);
           onSuccess();
         }}
